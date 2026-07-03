@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Maryna VinNik0va <vnnkvmrn76@gmail.com>",
+  "license": "ISC"
+  
+}
