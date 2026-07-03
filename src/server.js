@@ -11,7 +11,18 @@ const PORT = Number(process.env.PORT) || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(pinoHttp());
+// app.use(pinoHttp());
+app.use(pinoHttp({
+  transport: {
+    target: 'pino-pretty',
+    options: {
+      colorize: true,
+      translateTime: 'SYS:standard',
+      ignore: 'pid,hostname',
+    },
+  },
+}),
+);
 
 app.get('/notes', (req, res) => {
   res.status(200).json({
