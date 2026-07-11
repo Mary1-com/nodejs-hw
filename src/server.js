@@ -7,7 +7,7 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
-import { notesRoutes } from './routes/notesRoutes.js';
+import notesRoutes from './routes/notesRoutes.js';
 
 const app = express();
 
@@ -24,16 +24,11 @@ app.use(notFoundHandler);
 app.use(errorHandler);
 
 const bootstrap = async () => {
-  try {
-    await connectMongoDB();
+  await connectMongoDB();
 
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  } catch (error) {
-    console.error('❌ Failed to connect to MongoDB:', error.message);
-    process.exit(1);
-  }
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
 };
 
 bootstrap();
