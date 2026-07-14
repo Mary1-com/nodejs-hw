@@ -1,5 +1,6 @@
 import 'dotenv/config';
 
+import { errors } from 'celebrate';
 import cors from 'cors';
 import express from 'express';
 
@@ -20,6 +21,8 @@ app.use(cors());
 app.use(notesRoutes);
 
 app.use(notFoundHandler);
+
+app.use(errors());
 
 app.use(errorHandler);
 
