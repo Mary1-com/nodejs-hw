@@ -19,17 +19,17 @@ import {
 
 const notesRoutes = Router();
 
-notesRoutes.use(authenticate);
+notesRoutes.use('/notes', authenticate);
 
-notesRoutes.get('/', celebrate(getAllNotesSchema), getAllNotes);
+notesRoutes.get('/notes', celebrate(getAllNotesSchema), getAllNotes);
 
-notesRoutes.get('/:noteId', celebrate(noteIdSchema), getNoteById);
+notesRoutes.get('/notes/:noteId', celebrate(noteIdSchema), getNoteById);
 
-notesRoutes.post('/', celebrate(createNoteSchema), createNote);
+notesRoutes.post('/notes', celebrate(createNoteSchema), createNote);
 
-notesRoutes.patch('/:noteId', celebrate(updateNoteSchema), updateNote);
+notesRoutes.patch('/notes/:noteId', celebrate(updateNoteSchema), updateNote);
 
-notesRoutes.delete('/:noteId', celebrate(noteIdSchema), deleteNote);
+notesRoutes.delete('/notes/:noteId', celebrate(noteIdSchema), deleteNote);
 
 
 export default notesRoutes;
