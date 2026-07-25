@@ -21,14 +21,15 @@ const notesRoutes = Router();
 
 notesRoutes.use(authenticate);
 
-notesRoutes.get('/notes', celebrate(getAllNotesSchema), getAllNotes);
+notesRoutes.get('/', celebrate(getAllNotesSchema), getAllNotes);
 
-notesRoutes.get('/notes/:noteId', celebrate(noteIdSchema), getNoteById);
+notesRoutes.get('/:noteId', celebrate(noteIdSchema), getNoteById);
 
-notesRoutes.post('/notes', celebrate(createNoteSchema), createNote);
+notesRoutes.post('/', celebrate(createNoteSchema), createNote);
 
-notesRoutes.patch('/notes/:noteId', celebrate(updateNoteSchema), updateNote);
+notesRoutes.patch('/:noteId', celebrate(updateNoteSchema), updateNote);
 
-notesRoutes.delete('/notes/:noteId', celebrate(noteIdSchema), deleteNote);
+notesRoutes.delete('/:noteId', celebrate(noteIdSchema), deleteNote);
+
 
 export default notesRoutes;

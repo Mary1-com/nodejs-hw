@@ -1,8 +1,8 @@
+import express from 'express';
+import cors from 'cors';
 import 'dotenv/config';
 import cookieParser from 'cookie-parser';
 import { errors } from 'celebrate';
-import cors from 'cors';
-import express from 'express';
 
 import { connectMongoDB } from './db/connectMongoDB.js';
 import { errorHandler } from './middleware/errorHandler.js';
@@ -23,9 +23,12 @@ app.use(express.json());
 
 app.use(cookieParser());
 
+app.get('/test', (req, res) => {
+  res.json({ message: 'test works' });
+});
 
 app.use('/auth', authRoutes);
-app.use(notesRoutes);
+app.use('/notes', notesRoutes);
 
 app.use(errors());
 
