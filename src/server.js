@@ -23,16 +23,15 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-app.get('/test', (req, res) => {
-  res.json({ message: 'test works' });
-});
 
-app.use('/auth', authRoutes);
-app.use('/notes', notesRoutes);
+app.use(authRoutes);
 
-app.use(errors());
+app.use(notesRoutes);
+
 
 app.use(notFoundHandler);
+
+app.use(errors());
 
 app.use(errorHandler);
 
