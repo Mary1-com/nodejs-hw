@@ -19,6 +19,8 @@ authRoutes.post('/auth/register', celebrate(registerUserSchema), registerUser);
 
 authRoutes.post('/auth/login', celebrate(loginUserSchema), loginUser);
 
+authRoutes.post('/auth/logout', logoutUser);
+
 authRoutes.post('/auth/refresh', refreshUserSession);
 
 authRoutes.post('/auth/logout', logoutUser);
