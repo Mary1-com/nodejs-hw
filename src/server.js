@@ -10,6 +10,7 @@ import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import authRoutes from './routes/authRoutes.js';
 import notesRoutes from './routes/notesRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 
@@ -28,6 +29,8 @@ app.use(authRoutes);
 
 app.use(notesRoutes);
 
+// Додаємо раути користувача
+app.use(userRoutes);
 
 app.use(notFoundHandler);
 
